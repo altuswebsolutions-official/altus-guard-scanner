@@ -89,3 +89,11 @@ A Pro version is planned (CVE/vulnerability feed, more checks, more sites). It i
 ## License
 
 GPLv2 or later.
+
+## Disclaimer — please read before installing
+
+This plugin is provided **free, "as is", without any warranty** — including no warranty that it is error-free, fit for a particular purpose, or that it will prevent every security problem. No plugin can guarantee 100% security.
+
+- **Back up your site first, and test on a staging site if you can.** The authors are not liable for any loss, damage, or cost arising from use of this plugin, including any site breakage, data loss, or missed security issue.
+- This plugin **reports problems only — it never changes, deletes, or "fixes" your site on its own**, which is exactly why that risk is kept low.
+- If you are unsure about a finding, ask a WordPress professional before acting on it.
