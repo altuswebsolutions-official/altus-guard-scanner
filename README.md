@@ -97,3 +97,11 @@ This plugin is provided **free, "as is", without any warranty** — including no
 - **Back up your site first, and test on a staging site if you can.** The authors are not liable for any loss, damage, or cost arising from use of this plugin, including any site breakage, data loss, or missed security issue.
 - This plugin **reports problems only — it never changes, deletes, or "fixes" your site on its own**, which is exactly why that risk is kept low.
 - If you are unsure about a finding, ask a WordPress professional before acting on it.
+
+## WordPress hacking, PHP flaws, and hacked sites — check your site now
+
+WordPress hacking news is everywhere right now, and most of it comes down to the same few weaknesses. A **PHP flaw** can let attackers run code on a server — the recent PHP2Shell PHP vulnerabilities (CVE-2026-109618 and CVE-2026-109619) were fixed only in PHP 8.5.12, 8.4.27, 8.3.36, and 8.2.35, and a WordPress update alone does not fix PHP. A **WordPress security flaw** in core itself can be just as dangerous — the WordPress 7.1.4 update fixed 22 vulnerabilities, including a remote code execution issue affecting versions 4.7 to 7.1.3.
+
+If your WordPress site has been hacked, the signs are often quiet at first: strange PHP files appearing in the uploads folder, new admin users you did not create, outdated plugins nobody updated, or a PHP version your host stopped patching years ago. That is exactly what Altus Guard Scanner checks in one click: WordPress core updates, plugin and theme updates, your PHP version against the known fixed branches, PHP files hiding in uploads, unexpected administrators, and dangerous file-editor and debug settings.
+
+So if you searched for "is my WordPress site hacked", "WordPress malware scanner", "free WordPress security plugin", "PHP vulnerability check", or "WordPress hacked check" — this is the free first check to run. It takes two minutes, needs no account, changes nothing on your site, and tells you in plain language what to fix first.
