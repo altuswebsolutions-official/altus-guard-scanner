@@ -3,7 +3,7 @@
  * Plugin Name: Altus Guard Scanner
  * Plugin URI: https://altuswebsolutions.com/
  * Description: Lightweight security scanner (Free). Scans your site, shows each problem as a notification, and gives one guided fix step per problem. It reports and guides only — it never changes your site on its own. Pro features shown in the plugin are planned, not active in v1.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Altus Web Solutions
  * License: GPLv2 or later
  * Text Domain: altus-guard-scanner
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AGS_VERSION', '1.0.3' );
+define( 'AGS_VERSION', '1.0.4' );
 define( 'AGS_OPTION', 'altus_guard_scanner_last_scan' );
 define( 'AGS_CRON_HOOK', 'altus_guard_scanner_daily_scan' );
 
@@ -352,7 +352,8 @@ function ags_handle_manual_scan() {
 	check_admin_referer( 'altusguard_run_scan' );
 	$findings = ags_run_scan();
 	ags_save_scan( $findings );
-	wp_safe_redirect( add_query_arg( 'ags_scanned', '1', admin_url( 'admin.php?page=altus-guard-scanner' ) ) );
+	set_transient( 'ags_scan_complete', 1, 60 );
+	wp_safe_redirect( admin_url( 'admin.php?page=altus-guard-scanner' ) );
 	exit;
 }
 add_action( 'admin_post_altusguard_run_scan', 'ags_handle_manual_scan' );
@@ -410,8 +411,8 @@ function ags_render_admin_page() {
 	$scan = get_option( AGS_OPTION, false );
 	echo '<div class="wrap"><h1>Altus Guard Scanner (Free)</h1>';
 	echo '<p>This plugin reports problems and guides you, one step at a time. It never changes your site on its own.</p>';
-	$ags_scanned = isset( $_GET['ags_scanned'] ) ? sanitize_text_field( wp_unslash( $_GET['ags_scanned'] ) ) : '';
-	if ( '1' === $ags_scanned ) {
+	if ( get_transient( 'ags_scan_complete' ) ) {
+		delete_transient( 'ags_scan_complete' );
 		echo '<div class="notice notice-success"><p>Scan complete.</p></div>';
 	}
 	echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';

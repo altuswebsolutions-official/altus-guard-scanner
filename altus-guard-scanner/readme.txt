@@ -3,7 +3,7 @@ Contributors: asifaltus
 Tags: security, scanner, vulnerabilities, malware scan, hardening
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 
 Lightweight security scanner (Free). Scans your site, shows each problem as a notification, and gives one guided fix step per problem.
@@ -30,6 +30,8 @@ No plugin can. It tells you to ask your host to update PHP.
 No. Scan results stay in your own site database. v1 has no telemetry.
 
 == Changelog ==
+= 1.0.4 =
+* Plugin Check clean: the "Scan complete" notice no longer uses a $_GET flag — it now uses a short-lived transient set by the nonce-protected scan handler, removing the 2 NonceVerification warnings from v1.0.3 (0 errors, 0 warnings expected).
 = 1.0.3 =
 * Renamed to Altus Guard Scanner (new slug altus-guard-scanner) to avoid confusion with the existing SiteGuard WP Plugin on WordPress.org.
 * Submission polish: Plugin URI now points to altuswebsolutions.com (no example.com placeholder), admin scan-result flag is sanitized.
